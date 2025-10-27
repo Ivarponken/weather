@@ -14,7 +14,8 @@ const props = defineProps(['name', 'lat', 'long'])
 onMounted(() => {
   getPosition()
     .then((pos) => {
-      currentLocation.value = { name: 'Current location', ...pos.position }
+      // Use the name returned from getPosition (reverse geocoded when possible)
+      currentLocation.value = { ...pos.position }
     })
     .catch(() => {})
 })
@@ -82,14 +83,17 @@ watch(currentLocation, () => {
     </p>
   </main>
   <main v-else>
-    <h2>{{ location.name }}</h2>
-    <p class="location">
-      Lat: <span> {{ location.lat.toFixed(3) }} </span>
-    </p>
-    <p class="location">
-      Long: <span> {{ location.long.toFixed(3) }} </span>
-    </p>
-    <CurrentWeather v-if="currentWeather?.code" :weather="currentWeather" /> <br />
+    <div class="locationHeader">
+      <h2>{{ location.name }}</h2>
+      <p class="location">
+        Lat: <span> {{ location.lat.toFixed(3) }} </span>
+      </p>
+      <p class="location">
+        Long: <span> {{ location.long.toFixed(3) }} </span>
+      </p>
+    </div>
+    <CurrentWeather v-if="currentWeather?.code" :weather="currentWeather" />
+    <br />
     <ForecastResult :forecast="info" />
   </main>
 </template>
@@ -97,5 +101,8 @@ watch(currentLocation, () => {
 .location {
   display: inline-block;
   margin: 0 1em;
+}
+.locationHeader {
+  text-align: center;
 }
 </style>

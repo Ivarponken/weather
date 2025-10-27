@@ -45,8 +45,67 @@ function getText(code) {
       <ul>
         <li>Speed: {{ props.weather?.wind?.windspeed }}{{ props.weather?.wind?.unit }}</li>
         <li>Gusts: {{ props.weather?.wind?.windgusts }}{{ props.weather?.wind?.unit }}</li>
-        <li>
-          Direction: {{ props.weather?.wind?.direction }}{{ props.weather?.wind?.direction_unit }}
+        <li class="wind-direction">
+          <!-- Larger Compass -->
+          <svg class="compass" viewBox="0 0 50 50">
+            <!-- Outer circle -->
+            <circle cx="25" cy="25" r="20" stroke="rgb(116,116,116)" stroke-width="2" fill="none" />
+            <!-- N, E, S, W -->
+            <text
+              x="25"
+              y="15"
+              text-anchor="middle"
+              fill="rgb(116,116,116)"
+              font-family="sans-serif"
+              font-size="10"
+            >
+              N
+            </text>
+            <text
+              x="25"
+              y="42"
+              text-anchor="middle"
+              fill="rgb(116,116,116)"
+              font-family="sans-serif"
+              font-size="10"
+            >
+              S
+            </text>
+            <text
+              x="12"
+              y="28"
+              text-anchor="middle"
+              fill="rgb(116,116,116)"
+              font-family="sans-serif"
+              font-size="10"
+            >
+              W
+            </text>
+            <text
+              x="39"
+              y="28"
+              text-anchor="middle"
+              fill="rgb(116,116,116)"
+              font-family="sans-serif"
+              font-size="10"
+            >
+              E
+            </text>
+            <line
+              x1="25"
+              y1="25"
+              x2="25"
+              y2="8"
+              stroke="red"
+              stroke-width="2"
+              :transform="`rotate(${props.weather?.wind?.direction || 0}, 25, 25)`"
+            />
+            <polygon
+              points="25,3 23,8 27,8"
+              fill="red"
+              :transform="`rotate(${props.weather?.wind?.direction || 0}, 25, 25)`"
+            />
+          </svg>
         </li>
       </ul>
     </div>
@@ -97,5 +156,13 @@ function getText(code) {
   font-size: 0.95rem;
   margin-bottom: 0.3rem;
   opacity: 0.9;
+  display: flex;
+  align-items: center;
+}
+
+.compass {
+  width: 50px;
+  height: 50px;
+  margin-left: 0.5rem;
 }
 </style>

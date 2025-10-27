@@ -49,50 +49,53 @@ function getText(code) {
       <div class="key">Wind</div>
       <div class="value">
         {{ day.wind.speed }} ({{ day.wind.gusts }}){{ day.wind.unit }}
-        <!-- Minecraft-stil kompass -->
         <svg class="compass" viewBox="0 0 50 50">
-          <!-- Yttre cirkel -->
-          <rect x="5" y="5" width="40" height="40" fill="none" stroke="#fff" stroke-width="2" />
-          <!-- N, E, S, W -->
+          <circle cx="25" cy="25" r="20" stroke="#fff" stroke-width="2" fill="none" />
           <text
             x="25"
-            y="10"
+            y="15"
             text-anchor="middle"
             fill="#fff"
-            font-family="monospace"
-            font-size="6"
+            font-family="sans-serif"
+            font-size="10"
           >
             N
           </text>
           <text
             x="25"
-            y="48"
+            y="42"
             text-anchor="middle"
             fill="#fff"
-            font-family="monospace"
-            font-size="6"
+            font-family="sans-serif"
+            font-size="10"
           >
             S
           </text>
-          <text x="8" y="28" text-anchor="middle" fill="#fff" font-family="monospace" font-size="6">
-            W
-          </text>
           <text
-            x="42"
+            x="12"
             y="28"
             text-anchor="middle"
             fill="#fff"
-            font-family="monospace"
-            font-size="6"
+            font-family="sans-serif"
+            font-size="10"
+          >
+            W
+          </text>
+          <text
+            x="39"
+            y="28"
+            text-anchor="middle"
+            fill="#fff"
+            font-family="sans-serif"
+            font-size="10"
           >
             E
           </text>
-          <!-- Röd pil -->
           <line
             x1="25"
             y1="25"
             x2="25"
-            y2="8"
+            y2="7"
             stroke="red"
             stroke-width="2"
             :transform="`rotate(${day.wind.direction}, 25, 25)`"

@@ -104,7 +104,7 @@ function reset() {
                 :class="{ active: loc.default }"
                 :aria-pressed="loc.default"
               >
-                Grab location
+                Select Location
               </button>
             </div>
             <div class="action-bottom">

@@ -100,11 +100,6 @@ function getText(code) {
               stroke-width="2"
               :transform="`rotate(${props.weather?.wind?.direction || 0}, 25, 25)`"
             />
-            <polygon
-              points="25,3 23,8 27,8"
-              fill="red"
-              :transform="`rotate(${props.weather?.wind?.direction || 0}, 25, 25)`"
-            />
           </svg>
         </li>
       </ul>

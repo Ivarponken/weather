@@ -13,8 +13,9 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/index.html",
-  "background_color": "#ffffff",
+  "start_url": "/~s63834/weather/",
+  "scope": "/~s63834/weather/",
+  "background_color": "#fff",
   "display": "standalone",
-  "theme_color": "#4DBA87"
+  "theme_color": "#fff"
 }

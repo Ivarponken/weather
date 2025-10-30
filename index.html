@@ -10,6 +10,28 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
+    <!-- Dynamic theme color: white in light mode, black in dark mode -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#181919" />
+    <!-- Fallback + JS-updatable meta for browsers that don't support media on meta tags -->
+    <meta name="theme-color" id="theme-color-meta" content="#ffffff" />
+    <script>
+      ;(function () {
+        const meta = document.getElementById('theme-color-meta')
+        if (!meta) return
+        const mq = window.matchMedia('(prefers-color-scheme: dark)')
+        function update(e) {
+          const isDark = e?.matches ?? mq.matches
+          meta.setAttribute('content', isDark ? '#000000' : '#ffffff')
+        }
+        // Initial set
+        update()
+        // Listen for changes
+        if (mq.addEventListener) mq.addEventListener('change', update)
+        else if (mq.addListener) mq.addListener(update)
+      })()
+    </script>
+
     <title>Ivar's Nicest Weather App</title>
   </head>
   <body>

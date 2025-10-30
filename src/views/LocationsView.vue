@@ -129,7 +129,7 @@ function reset() {
 h2 {
   margin-bottom: 1rem;
   text-align: center;
-  color: #555;
+  color: #fff;
 }
 
 /* Form */
@@ -161,8 +161,8 @@ input {
   align-items: flex-end;
 }
 button {
-  background: gray;
-  color: white;
+  background: #666;
+  color: #fff;
   border: none;
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
@@ -303,8 +303,7 @@ button.remove:hover {
     color: inherit;
   }
   .card:nth-of-type(even) {
-    background: gainsboro;
-    color: grey;
+    background: #777;
   }
   .card:nth-of-type(odd) {
     background: gray;

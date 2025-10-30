@@ -49,13 +49,13 @@ function getText(code) {
           <!-- Larger Compass -->
           <svg class="compass" viewBox="0 0 50 50">
             <!-- Outer circle -->
-            <circle cx="25" cy="25" r="20" stroke="rgb(116,116,116)" stroke-width="2" fill="none" />
+            <circle cx="25" cy="25" r="20" stroke="#fff" stroke-width="2" fill="none" />
             <!-- N, E, S, W -->
             <text
               x="25"
               y="15"
               text-anchor="middle"
-              fill="rgb(116,116,116)"
+              fill="#fff"
               font-family="sans-serif"
               font-size="10"
             >
@@ -65,7 +65,7 @@ function getText(code) {
               x="25"
               y="42"
               text-anchor="middle"
-              fill="rgb(116,116,116)"
+              fill="#fff"
               font-family="sans-serif"
               font-size="10"
             >
@@ -75,7 +75,7 @@ function getText(code) {
               x="12"
               y="28"
               text-anchor="middle"
-              fill="rgb(116,116,116)"
+              fill="#fff"
               font-family="sans-serif"
               font-size="10"
             >
@@ -85,7 +85,7 @@ function getText(code) {
               x="39"
               y="28"
               text-anchor="middle"
-              fill="rgb(116,116,116)"
+              fill="#fff"
               font-family="sans-serif"
               font-size="10"
             >
@@ -113,15 +113,14 @@ function getText(code) {
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
-  color: rgb(116, 116, 116);
+  color: var(--color-text);
 }
 
 .weather-section {
   flex: 1 1 200px;
   min-width: 200px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-background-mute);
   border-radius: 0.8rem;
   padding: 1rem 1.2rem;
   transition:
@@ -130,14 +129,13 @@ function getText(code) {
 }
 
 .weather-section:hover {
-  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-3px);
 }
 
 .weather-section h3 {
   font-size: 1.1rem;
   margin-bottom: 0.6rem;
-  color: rgb(119, 119, 119);
+  color: var(--color-heading);
   font-weight: 600;
 }
 
@@ -150,7 +148,7 @@ function getText(code) {
 .weather-section li {
   font-size: 0.95rem;
   margin-bottom: 0.3rem;
-  opacity: 0.9;
+  opacity: 0.95;
   display: flex;
   align-items: center;
 }
@@ -159,5 +157,16 @@ function getText(code) {
   width: 50px;
   height: 50px;
   margin-left: 0.5rem;
+}
+
+/* Keep previous darker/gray styling on light mode for better contrast on the compass */
+@media (prefers-color-scheme: light) {
+  .weather-section {
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+  }
+  .weather-section h3 {
+    color: #fff;
+  }
 }
 </style>

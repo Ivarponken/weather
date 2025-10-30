@@ -115,8 +115,8 @@ function getText(code) {
   margin: 0 0 0.6rem 0;
   padding: 0.5rem 0.6rem;
   list-style: none;
-  background: gray;
-  color: #fff;
+  background: var(--color-background-mute);
+  color: var(--color-heading);
   font-weight: 600;
   border-radius: 6px 6px 0 0;
   font-family: 'Poppins', sans-serif;
@@ -125,12 +125,12 @@ function getText(code) {
 
 /* Card */
 .card {
-  background: gray;
+  background: var(--color-background-soft);
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
   font-family: 'Poppins', sans-serif;
 }
 
@@ -140,7 +140,7 @@ function getText(code) {
   gap: 1rem;
   align-items: flex-start;
   padding: 0.3rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--color-border);
 }
 .kv:last-child {
   border-bottom: none;
@@ -149,13 +149,13 @@ function getText(code) {
 .key {
   flex: 0 0 100px;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-heading);
   white-space: nowrap;
 }
 
 .value {
   flex: 1 1 auto;
-  color: #fff;
+  color: var(--color-text);
   word-break: break-word;
 }
 
@@ -183,11 +183,11 @@ function getText(code) {
     color: inherit;
   }
   .card:nth-of-type(even) {
-    background: gainsboro;
-    color: grey;
+    background: var(--color-background-mute);
+    color: var(--color-text);
   }
   .card:nth-of-type(odd) {
-    background: gray;
+    background: var(--color-background-soft);
   }
   .header {
     border-radius: 6px 6px 0 0;
@@ -197,6 +197,31 @@ function getText(code) {
   }
 }
 
+/* Keep previous gray look in light mode for better compass contrast */
+@media (prefers-color-scheme: light) {
+  .header {
+    background: gray;
+    color: #fff;
+  }
+  .card {
+    background: gray;
+    color: #fff;
+  }
+  .card:nth-of-type(even) {
+    background: #777;
+    color: grey;
+  }
+  .card:nth-of-type(odd) {
+    background: gray;
+    color: #fff;
+  }
+  .key {
+    color: #fff;
+  }
+  .value {
+    color: #fff;
+  }
+}
 /* --- Mobile: göm header, visa kort med key/value --- */
 @media (max-width: 699px) {
   .header {
@@ -212,9 +237,11 @@ function getText(code) {
   } /* visa key på mobil */
   .card:nth-of-type(even) {
     background: gray;
+    color: #fff;
   }
   .card:nth-of-type(odd) {
-    background: rgb(170, 170, 170);
+    background: #777;
+    color: #fff;
   }
 }
 

@@ -12,7 +12,6 @@ function getText(code) {
 </script>
 
 <template>
-  <!-- Desktop header -->
   <ul class="header">
     <li>Date</li>
     <li>Code</li>
@@ -21,7 +20,6 @@ function getText(code) {
     <li>Wind</li>
   </ul>
 
-  <!-- Kort per dag -->
   <div v-for="day in props.forecast?.weather ?? []" :key="day.date" class="card">
     <div class="kv">
       <div class="key">Date</div>
@@ -107,7 +105,6 @@ function getText(code) {
 </template>
 
 <style scoped>
-/* Desktop header */
 .header {
   display: grid;
   grid-template-columns: 12% 20% 20% 20% auto;
@@ -123,7 +120,6 @@ function getText(code) {
   font-size: 0.95rem;
 }
 
-/* Card */
 .card {
   background: var(--color-background-soft);
   border-radius: 10px;
@@ -159,7 +155,6 @@ function getText(code) {
   word-break: break-word;
 }
 
-/* --- Desktop: header + grid --- */
 @media (min-width: 700px) {
   .header {
     display: grid;
@@ -197,7 +192,6 @@ function getText(code) {
   }
 }
 
-/* Keep previous gray look in light mode for better compass contrast */
 @media (prefers-color-scheme: light) {
   .header {
     background: gray;
@@ -222,7 +216,6 @@ function getText(code) {
     color: #fff;
   }
 }
-/* --- Mobile: göm header, visa kort med key/value --- */
 @media (max-width: 699px) {
   .header {
     display: none;
@@ -245,7 +238,6 @@ function getText(code) {
   }
 }
 
-/* Compass */
 .compass {
   width: 40px;
   height: 40px;

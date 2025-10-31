@@ -159,7 +159,6 @@ function getText(code) {
   margin-left: 0.5rem;
 }
 
-/* Keep previous darker/gray styling on light mode for better contrast on the compass */
 @media (prefers-color-scheme: light) {
   .weather-section {
     background: rgba(0, 0, 0, 0.45);

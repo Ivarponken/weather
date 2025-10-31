@@ -132,7 +132,6 @@ h2 {
   color: #fff;
 }
 
-/* Form */
 .form {
   display: flex;
   flex-wrap: wrap;
@@ -180,9 +179,7 @@ button.remove:hover {
   background: #b22;
 }
 
-/* Ensure action buttons (set default / edit / remove) have the same height */
 .kv.actions .value button {
-  /* fixed height so all buttons align */
   min-height: 36px;
   height: 36px;
   display: inline-flex;
@@ -191,7 +188,6 @@ button.remove:hover {
   padding: 0 0.75rem;
   line-height: 1;
   box-sizing: border-box;
-  /* subtle inner outline so buttons have a faint border without layout shift */
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   border-radius: 6px;
   transition:
@@ -204,30 +200,24 @@ button.remove:hover {
   cursor: not-allowed;
 }
 
-/* visual state for the active (default) location button */
 .kv.actions .value button.active {
-  /* subtle selection outline while remaining clickable */
   outline: 2px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
 }
 
-/* Hover and focus styles for better affordance */
 .kv.actions .value button:hover {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
   transform: translateY(-1px);
 }
 .kv.actions .value button:focus-visible {
   outline: none;
-  /* outer glow for keyboard focus */
   box-shadow: 0 0 0 3px rgba(70, 130, 180, 0.18);
 }
 
 .kv.actions .value button.edit {
-  /* ensure edit button uses same padding as other action buttons */
   padding: 0 0.75rem;
 }
 
-/* Desktop header */
 .header {
   display: grid;
   grid-template-columns: 25% 15% 15% 15% auto;
@@ -242,7 +232,6 @@ button.remove:hover {
   font-size: 0.95rem;
 }
 
-/* Card */
 .card {
   background: gray;
   border-radius: 10px;
@@ -279,7 +268,6 @@ button.remove:hover {
   word-break: break-word;
 }
 
-/* --- Desktop grid --- */
 @media (min-width: 700px) {
   .header {
     display: grid;
@@ -312,10 +300,9 @@ button.remove:hover {
     border-radius: 0 0 6px 6px;
   }
 
-  /* Desktop: ensure action buttons are inline and compact */
   .kv.actions .value .action-buttons {
     display: flex;
-    flex-direction: row; /* override mobile column */
+    flex-direction: row;
     align-items: center;
     gap: 0.5rem;
   }
@@ -324,7 +311,7 @@ button.remove:hover {
   }
   .kv.actions .value .action-top button {
     width: auto;
-    min-width: 120px; /* reasonable primary button size */
+    min-width: 120px;
   }
   .kv.actions .value .action-bottom {
     display: flex;
@@ -332,15 +319,14 @@ button.remove:hover {
   }
   .kv.actions .value .action-bottom button {
     flex: 0 0 auto;
-    width: 36px; /* small square buttons for edit/remove */
-    padding: 0; /* remove extra horizontal padding to keep them square */
+    width: 36px;
+    padding: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 }
 
-/* --- Mobile: hide header, stacked key/value layout --- */
 @media (max-width: 699px) {
   .header {
     display: none;
@@ -360,7 +346,6 @@ button.remove:hover {
     background: #555;
   }
 
-  /* Mobile: place Grab location on its own row, edit/remove underneath */
   .kv.actions .value .action-buttons {
     display: flex;
     flex-direction: column;
